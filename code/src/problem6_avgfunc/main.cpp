@@ -26,18 +26,18 @@
 using std::cout;
 using std::cin;
 
-// TODO: Implement printDblArray() method here.
-void printDblArray(double arr[], size_t size)
-{
+//// TODO: Implement printDblArray() method here.
+//void printDblArray(double arr[], size_t size)
+//{
 
-}
+//}
 
 
-// TODO: Implement calcAvg() method here.
-double calcAvg(double arr[], size_t size)
-{
-
-}
+//// TODO: Implement calcAvg() method here.
+//double calcAvg(double arr[], size_t size)
+//{
+//    return 0;
+//}
 
 
 

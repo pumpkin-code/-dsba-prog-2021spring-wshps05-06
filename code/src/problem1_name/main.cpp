@@ -26,16 +26,43 @@ int main()
 {
     using std::cout;
     using std::cin;
+            // ^^ the full-quilified name for a global object
     
     // TODO: provide your implementation here
 
 
     // prompt a user to input their name separately
     cout << "Input first name: ";
+    std::string firstName;                   // use cameStyle not snake_style
+    // ^^^ the full qulified name for the data type
+    cin >> firstName;
+
     // your code
     cout << "Input last name: ";
+    std::string lastName;
+    cin >> lastName;
     
-    // your code 
+
+    // straight direction
+    cout << firstName << " " << lastName;
+
+    // reverse direction
+    cout << " (" << lastName  << ", " <<  firstName << ")";
+
+    // After the last input with cin >> we have '\n' symbol preserved in the
+    // input stream, and, thus, if we call getline() method, it will return
+    // immediately with n empty string. This is why we use the cin.ignore() method
+    // to extract the remaining part of the previous reading.
+    cin.ignore(1);      // get rid of '\n'
+    //cin.clear();
+
+
+    cout << "\n\nInput the full name: ";
+    std::string fullName;
+    //cin >> fullName;          // extracts only the part of input before the very first space symbol
+    std::getline(cin, fullName);
+    cout << "Full Name: " << fullName;
+
     
     cout << "\n\n";
     return 0;

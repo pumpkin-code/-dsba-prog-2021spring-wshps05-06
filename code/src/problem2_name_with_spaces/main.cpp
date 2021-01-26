@@ -16,7 +16,7 @@
 
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <sstream>          // std::stringstream
 
 int main()
 {
@@ -35,24 +35,42 @@ int main()
     const size_t bufSize = sizeof(buf); // get the actual size of the buffer
                                         // at the compilation stage
 
-    cin.getline(buf, bufSize);
+    cin.getline(buf, bufSize);          // DO NOT be confused with the std::getline() — they are mostly different methods with the similar names
+
+        // ^^^ if defined in the definition of istream datatype (istream cin)
+
     std::string first(buf);             // initialize a string w/ the buffer
 
     cout << "Input last name: ";
-
+    cin.getline(buf, bufSize);
+    std::string last(buf);
     
     // Use the following lines for output
     // cout << "Name in straight order: " << straight;
     // cout << "\n\nName in reverse order: " << reverse;
 
 
+    // the first approach to concatenate strings
+    std::string full(first + " " + last);       // inefficient due to making a set of intermediate string objects:
+                                                // 1) first + " ", 2) (first + " ") + last
+    cout << "\nFull name: " << full;
+
     
     ///////////////////////
-    // Alternative method:
+    // Alternative method, which is useful when one needs to concatenate a sequence of strings:
     
     // using std::stringstream allows to combine different strings
     // more efficiently
-    // std::stringstream ss;
+    // it works as a mix of ostream (operator<<) and istream (operator>>)
+    std::stringstream ss;
+    ss << last << ", " << first;
+
+    // stringstream can be converted to a string using
+    std::string s = ss.str();
+    cout << "\nStringStreamed full name: " << ss.str();
+
+
+
     // ss << last + ", " + first;
 
 

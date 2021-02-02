@@ -18,6 +18,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <cstdio>
 
 // TODO: Implement splitAndOutput() method here.
 void splitAndOutput(const std::string& str, char delimiter)
@@ -36,6 +37,14 @@ int main()
     // Input the delimiter character
     // Call splitAndOutput
     
+
+    // scanf test
+    char string[256];
+    scanf( "%s" , string );
+
+
+
+
     cout << "\n\n";
     return 0;
 }
